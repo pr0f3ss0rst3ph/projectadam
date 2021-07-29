@@ -4,17 +4,22 @@ $robotomono: "Roboto Mono", monospace;
 
 body {
   padding: 0;
+  background-color: rgb(239, 253, 253);
 }
 
 .logincard {
-  width: 90vw;
+  width: 95vw;
   background-color: aqua;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1%;
   border-radius: 8px;
   height: 95vh;
   display: flex;
   flex-direction: row;
+  box-shadow: -4px -3px 11px -4px #d2d2d4;
+  --webkit-box-shadow: -4px -3px 11px -4px #d2d2d4;
+  --moz-box-shadow: -4px -3px 11px -4px #d2d2d4;
 }
 
 .form {
@@ -35,9 +40,17 @@ body {
 .welcome-text {
   margin-top: 30%;
   text-align: center;
-  font-size: 21px;
+  font-size: 25px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  font-family: $robotomono;
+}
+
+.sub-text {
+  margin-top: 5%;
+  color: gray;
+  font-size: 12px;
+  text-align: center;
   font-family: $robotomono;
 }
 
@@ -62,6 +75,7 @@ body {
   background-color: rgb(245, 245, 245);
   border-radius: 8px;
   outline: none;
+  text-align: center;
 }
 
 #username:hover,
@@ -75,5 +89,23 @@ body {
 #password:focus {
   background-color: white;
   border-color: rgb(64, 247, 253);
+  transition: 0.5s;
+}
+
+.signin-button {
+  padding: 10px;
+  border: 0;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 8px;
+  background-color: rgb(60, 175, 179);
+  color: white;
+}
+
+.signin-button:hover {
+  background-color: rgb(72, 219, 224);
   transition: 0.5s;
 }

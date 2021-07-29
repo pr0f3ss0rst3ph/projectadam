@@ -1,4 +1,4 @@
-
+import Button from "./components/Button";
 
 const App = () => {
   return (
@@ -9,10 +9,14 @@ const App = () => {
              <div className='welcome-text'>
                Welcome to A.D.A.M
              </div>
+             <div className='sub-text'>
+               Application Deployment And Management
+             </div>
              <div className='input-fields'>
                <input type='text' placeholder='Username' id='username'/>
                <input type='password' placeholder='Password' id='password'/>
              </div>
+             <Button />
            </div>
            <div className='loginimage'></div>
          </div>
