@@ -16,7 +16,7 @@ const App = () => {
                <input type='text' placeholder='Username' id='username'/>
                <input type='password' placeholder='Password' id='password'/>
              </div>
-             <Button />
+             <Button type='signin'/>
            </div>
            <div className='loginimage'></div>
          </div>
