@@ -7,7 +7,7 @@ const App = () => {
          <div className='logincard'>
            <div className='form'>
              <div className='welcome-text'>
-               Welcome to A.D.A.M
+               A.D.A.M : eCommerce
              </div>
              <div className='sub-text'>
                Application Deployment And Management
