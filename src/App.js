@@ -1,6 +1,25 @@
+import { useState, useEffect } from "react";
 import Button from "./components/Button";
 
+const userinfo = 'http://localhost:8080/users';
+
 const App = () => {
+  const [userData, setUserData] = useState({});
+
+  useEffect(() => {
+    getUserinfo();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const getUserinfo = async () => {
+    const response = await fetch(userinfo);
+    const jsonData = await response.json();
+    setUserData(jsonData);
+    console.log(userData);
+    console.log(userData[0].firstname);
+  };
+
   return (
     <div className="adam">
        <div className='login'>
