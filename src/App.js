@@ -5,6 +5,7 @@ const userinfo = 'http://localhost:8080/users';
 
 const App = () => {
   const [userData, setUserData] = useState({});
+  const [searchData, setSearchData] = useState({});
 
   useEffect(() => {
     getUserinfo();
@@ -16,9 +17,20 @@ const App = () => {
     const response = await fetch(userinfo);
     const jsonData = await response.json();
     setUserData(jsonData);
-    console.log(userData);
-    console.log(userData[0].firstname);
   };
+  //Variable userData contains array of data
+
+  const search = () => {
+    const newResults = userData.filter(user => user.username.includes('sfraser'));
+    setSearchData(newResults);
+    //console.log(searchData);
+  };
+
+  // const newResults = userData.filter(user => user.username.includes('dedwards'));
+  // console.log(newResults);
+
+  // console.log(userData);
+  //console.log(userData[0].firstname);
 
   return (
     <div className="adam">
