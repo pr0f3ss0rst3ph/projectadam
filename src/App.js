@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import Button from "./components/Button";
+import Signin from "./components/Signin";
+import Main from "./components/Main";
 
 const userinfo = 'http://localhost:8080/users';
 
 const App = () => {
   const [userData, setUserData] = useState({});
   const [searchData, setSearchData] = useState({});
+  const [change, setChange] = useState('')
 
   useEffect(() => {
     getUserinfo();
@@ -20,9 +22,17 @@ const App = () => {
   };
   //Variable userData contains array of data
 
-  const search = () => {
-    const newResults = userData.filter(user => user.username.includes('sfraser'));
+  const validate = async (userInfo) => {
+    const newResults = userData.filter(user => user.username.includes(userInfo.username));
     setSearchData(newResults);
+    if(userInfo.password === newResults[0].password){
+      setChange('Confirmed')
+    }
+    else {
+      setChange('Denied')
+      console.log('Login Denied!')
+      console.log('User: ' + userInfo.username + ' & ' + newResults[0].username + ' has conflicting information. searchData contains ' + searchData[0].username )
+    }
     //console.log(searchData);
   };
 
@@ -34,24 +44,7 @@ const App = () => {
 
   return (
     <div className="adam">
-       <div className='login'>
-         <div className='logincard'>
-           <div className='form'>
-             <div className='welcome-text'>
-               A.D.A.M : eCommerce
-             </div>
-             <div className='sub-text'>
-               Application Deployment And Management
-             </div>
-             <div className='input-fields'>
-               <input type='text' placeholder='Username' id='username'/>
-               <input type='password' placeholder='Password' id='password'/>
-             </div>
-             <Button type='signin'/>
-           </div>
-           <div className='loginimage'></div>
-         </div>
-       </div>
+      {change === 'Confirmed' ? <Main /> : <Signin checker={ validate }/>}
     </div>
   );
 }
